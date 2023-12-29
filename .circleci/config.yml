@@ -26,8 +26,6 @@ workflows:
           vcs_type: << pipeline.project.type >>
           requires: [orb-tools/lint, orb-tools/review, orb-tools/pack, shellcheck/check]
           filters: *filters
-  main:
-    jobs:
       - code-quality:
           context: qodana
 jobs:
@@ -37,4 +35,4 @@ jobs:
     steps:
       - checkout
       - qodana/scan:
-          args: -l jetbrains/qodana-jvm # use space to separate arguments 
+          args: -l jetbrains/qodana-jvm # use space to separate arguments
